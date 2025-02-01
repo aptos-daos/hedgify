@@ -1,0 +1,30 @@
+# Terraform files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Kubernetes manifests (if generated dynamically)
+*.kubeconfig
+.kubernetes/
+
+# Ignore sensitive environment files
+.env
+*.pem
+*.key
+*.crt
+
+# Logs and debugging files
+*.log
+*.out
+*.err
+debug/
+
+# Ignore Terraform variable overrides (if using terraform.tfvars for secrets)
+terraform.tfvars
+terraform.tfvars.json
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+.DS_Store
