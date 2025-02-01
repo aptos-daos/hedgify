@@ -17,29 +17,19 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  hedgify-server:
-    build:
-      context: ./hedgify-server
-      dockerfile: Dockerfile
-    develop:
-      watch:
-        - action: sync
-          path: ./
-          target: /dist
-          ignore:
-            - node_modules/
-            - .git/
-        - action: rebuild
-          path: package.json
-    ports:
-      - 8080:8080
-    environment:
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - DATABASE_URL=postgresql://postgres:admin@123@dev-db:5432/hedgify
-    depends_on:
-      - dev-db
-      - redis
+  # hedgify-server:
+  #   build:
+  #     context: ./hedgify-server
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 8080:8080
+  #   environment:
+  #     - REDIS_HOST=redis
+  #     - REDIS_PORT=6379
+  #     - DATABASE_URL=postgresql://postgres:admin@123@dev-db:5432/hedgify
+  #   depends_on:
+  #     - dev-db
+  #     - redis
 
   # hedgify-client:
   #   build:
